@@ -15,6 +15,12 @@ const contract = new ethers.Contract(
   provider
 );
 
+// Show the balance of the contract
+app.get('/balance', async (req: Request, res: Response) => {
+  const balance = await provider.getBalance(contractAddress);
+  res.send(ethers.formatEther(balance));
+});
+
 // Call the withdraw function
 app.get('/withdraw', async (req: Request, res: Response) => {
   const signer = new ethers.Wallet(process.env.PRIVATE_KEY as string, provider);
@@ -52,6 +58,7 @@ contract.on('Withdrawal', (amount, when, event) => {
 
 contract.on('Deposit', (amount, when, event) => {
   console.log('Deposit event received:', amount, when, event);
+  event.removeListener();
 });
 
 // Init the server

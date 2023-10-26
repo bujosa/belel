@@ -8,7 +8,7 @@ The main objective of this project is to create a simple api to interact with th
 ## Technologies
 
 - [Hardhat](https://hardhat.org/)
-- [Ethers](https://docs.ethers.io/v5/)
+- [Ethers v6](https://docs.ethers.org/v6/getting-started/)
 - [Express](https://expressjs.com/)
 - [TypeScript](https://www.typescriptlang.org/)
 
