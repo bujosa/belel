@@ -15,11 +15,16 @@ const contract = new ethers.Contract(
   provider
 );
 
-console.log(JSON.stringify(contract));
-
 // Call the withdraw function
 app.get('/withdraw', async (req: Request, res: Response) => {
-  const result = await contract.withdraw();
+  const signer = new ethers.Wallet(process.env.PRIVATE_KEY as string, provider);
+  const lockContract = new ethers.Contract(
+    contractAddress,
+    contractAbi.abi,
+    signer
+  );
+
+  const result = await lockContract.withdraw();
   res.send(result);
 });
 
@@ -42,14 +47,12 @@ app.post('/deposit', async (req: Request, res: Response) => {
 // Listen for events
 contract.on('Withdrawal', (amount, when, event) => {
   console.log('Withdrawal event received:', amount, when, event);
+  event.removeListener();
 });
 
-const depositListener = (amount: any, when: any, event: any) => {
+contract.on('Deposit', (amount, when, event) => {
   console.log('Deposit event received:', amount, when, event);
-  removeEventListener('Deposit', depositListener);
-};
-
-contract.on('Deposit', depositListener);
+});
 
 // Init the server
 app.listen(3000, () => {
