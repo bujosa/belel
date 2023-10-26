@@ -1,6 +1,9 @@
-# belel
+# Belel
 
 This is a simple project, related with hardhat express and ethereum.
+We are using hardhat to compile and deploy the smart contracts, and express to create a simple api to interact with the smart contracts.
+
+The main objective of this project is to create a simple api to interact with the smart contracts, and check the events and transactions.
 
 ## Technologies
 
