@@ -29,6 +29,13 @@ $ npm run dev
 $ npx hardhat compile
 ```
 
+## Init the local network
+
+```bash
+# init
+$ npx hardhat node
+```
+
 ## Deploy contracts
 
 ```bash
