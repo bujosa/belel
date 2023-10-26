@@ -1,0 +1,17 @@
+{
+  "name": "belel",
+  "version": "1.0.0",
+  "description": "This is a simple project, related with hardhat express and ethereum.",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Ethereum",
+    "Express",
+    "Hardhat",
+    "Typescript"
+  ],
+  "author": "Bujosa",
+  "license": "MIT"
+}
