@@ -13,5 +13,8 @@
     "Typescript"
   ],
   "author": "Bujosa",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "hardhat": "^2.18.3"
+  }
 }
