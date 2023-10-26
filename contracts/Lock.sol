@@ -27,7 +27,7 @@ contract Lock {
         owner.transfer(address(this).balance);
     }
 
-    function deposit() public payable {
+    receive() external payable {
         require(msg.value > 0, "You must send some ether");
         emit Deposit(msg.value, msg.sender, block.timestamp);
     }
